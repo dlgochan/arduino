@@ -18,16 +18,33 @@ void loop() {
   int row, column;
 
   for(row=0; row<8; row++){
-    for(column=0; column<8; column++){
-      DM.setLed(0, row, column, true);
-      delay(100);
+    if(row % 2 == 0){ // row가 짝수
+       for(column=0; column<8; column+=2){
+        DM.setLed(0, row, column, true);
+        delay(100);
+       }
+    }
+    else{
+       for(column=1; column<8; column+=2){
+        DM.setLed(0, row, column, true);
+        delay(100);
+       }
     }
   }
+  
 
   for(row=0; row<8; row++){
-    for(column=0; column<8; column++){
-      DM.setLed(0, row, column, false);
-      delay(100);
+    if(row % 2 == 0){ // row가 짝수
+       for(column=0; column<8; column+=2){
+        DM.setLed(0, row, column, false);
+        delay(100);
+       }
+    }
+    else{
+       for(column=1; column<8; column+=2){
+        DM.setLed(0, row, column, false);
+        delay(100);
+       }
     }
   }
   
